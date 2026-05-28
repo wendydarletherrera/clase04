@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-heading">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Administracion</li>
+            <li class="breadcrumb-item active" aria-current="page">Importar CSV</li>
+        </ol>
+    </nav>
+    <div>
+        <h1>Importar ventas</h1>
+        <p>Carga ventas hacia PostgreSQL con validacion y deduplicacion.</p>
+    </div>
+</div>
+
+<section class="import-card">
+    <div class="section-title">
+        <h2>Archivo de ventas</h2>
+        <span>Formato esperado: dataset Cafe Andino</span>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="upload-form">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.csv_file.label(class="form-label") }}
+            {{ form.csv_file(class="form-control form-control-lg") }}
+            {% for error in form.csv_file.errors %}
+            <div class="text-danger small mt-2">{{ error }}</div>
+            {% endfor %}
+        </div>
+        {{ form.submit(class="btn btn-primary-material") }}
+    </form>
+</section>
+{% endblock %}

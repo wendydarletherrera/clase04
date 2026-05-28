@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-heading dashboard-hero hero-products">
+    <div class="hero-copy">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">Paneles</li>
+                <li class="breadcrumb-item active" aria-current="page">Productos / OLAP</li>
+            </ol>
+        </nav>
+        <span class="hero-eyebrow">Product performance</span>
+        <h1>Panel Productos </h1>
+        <p>Analisis por categoria, linea, origen y tueste con lectura tipo cubo comercial.</p>
+    </div>
+    <div class="hero-summary">
+        <div class="summary-chip">
+            <i class="fa-solid fa-cubes"></i>
+            <span>Cubo OLAP</span>
+        </div>
+        <div class="summary-grid">
+            <div><strong>Producto</strong><span>Ranking y mix</span></div>
+            <div><strong>Origen</strong><span>Yungas, Caranavi</span></div>
+            <div><strong>Tueste</strong><span>Perfil comercial</span></div>
+        </div>
+    </div>
+</div>
+
+<form class="filter-panel" id="filtersForm">
+    <div class="filter-grid">
+        <label>Anio<select class="form-select" name="anio" data-filter="anio"></select></label>
+        <label>Mes<select class="form-select" name="mes" data-filter="mes"></select></label>
+        <label>Categoria<select class="form-select" name="categoria_producto" data-filter="categoria_producto"></select></label>
+        <label>Linea<select class="form-select" name="linea_producto" data-filter="linea_producto"></select></label>
+        <label>Origen<select class="form-select" name="origen_cafe" data-filter="origen_cafe"></select></label>
+        <label>Tueste<select class="form-select" name="tipo_tueste" data-filter="tipo_tueste"></select></label>
+        <label>Sucursal<select class="form-select" name="sucursal" data-filter="sucursal"></select></label>
+        <button class="btn btn-primary-material" type="submit"><i class="fa-solid fa-sliders"></i> Aplicar</button>
+    </div>
+</form>
+
+<section class="kpi-grid compact" id="kpiGrid"></section>
+<section class="chart-grid">
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-0"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-1"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-2"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-3"></canvas></div></article>
+</section>
+<section class="table-card">
+    <div class="section-title">
+        <h2>Cubo OLAP</h2>
+        <span>Anio, mes, sucursal y categoria</span>
+    </div>
+    <table id="analyticsTable" class="table table-hover w-100"></table>
+</section>
+{% endblock %}

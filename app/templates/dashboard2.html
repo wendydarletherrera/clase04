@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-heading dashboard-hero hero-clients">
+    <div class="hero-copy">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">Paneles</li>
+                <li class="breadcrumb-item active" aria-current="page">Clientes</li>
+            </ol>
+        </nav>
+        <span class="hero-eyebrow">Customer intelligence</span>
+        <h1>Panel Clientes</h1>
+        <p>Lectura ejecutiva de segmentos, zonas y ciudades para priorizar crecimiento rentable.</p>
+    </div>
+    <div class="hero-summary">
+        <div class="summary-chip">
+            <i class="fa-solid fa-user-check"></i>
+            <span>Segmentacion activa</span>
+        </div>
+        <div class="summary-grid">
+            <div><strong>Clientes</strong><span>Unicos y recurrentes</span></div>
+            <div><strong>Segmentos</strong><span>Gourmet, familiar, joven</span></div>
+            <div><strong>Zonas</strong><span>Mapa comercial</span></div>
+        </div>
+    </div>
+</div>
+
+<form class="filter-panel" id="filtersForm">
+    <div class="filter-grid">
+        <label>Anio<select class="form-select" name="anio" data-filter="anio"></select></label>
+        <label>Mes<select class="form-select" name="mes" data-filter="mes"></select></label>
+        <label>Tipo cliente<select class="form-select" name="tipo_cliente" data-filter="tipo_cliente"></select></label>
+        <label>Segmento<select class="form-select" name="segmento_cliente" data-filter="segmento_cliente"></select></label>
+        <label>Ciudad<select class="form-select" name="ciudad_cliente" data-filter="ciudad_cliente"></select></label>
+        <label>Zona<select class="form-select" name="zona_cliente" data-filter="zona_cliente"></select></label>
+        <button class="btn btn-primary-material" type="submit"><i class="fa-solid fa-sliders"></i> Aplicar</button>
+    </div>
+</form>
+
+<section class="kpi-grid compact" id="kpiGrid"></section>
+<section class="chart-grid">
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-0"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-1"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-2"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-3"></canvas></div></article>
+</section>
+<section class="table-card">
+    <div class="section-title">
+        <h2>Detalle de clientes</h2>
+        <span>Tipo, segmento y ciudad</span>
+    </div>
+    <table id="analyticsTable" class="table table-hover w-100"></table>
+</section>
+{% endblock %}

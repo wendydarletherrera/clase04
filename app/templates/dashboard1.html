@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-heading dashboard-hero hero-executive">
+    <div class="hero-copy">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">Paneles</li>
+                <li class="breadcrumb-item active" aria-current="page">Ejecutivo</li>
+            </ol>
+        </nav>
+        <span class="hero-eyebrow">Executive summary</span>
+        <h1>Panel Ejecutivo</h1>
+        <p>Vision comercial consolidada para detectar rendimiento, expansion y oportunidades por canal.</p>
+    </div>
+    <div class="hero-summary">
+        <div class="summary-chip">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Decision ready</span>
+        </div>
+        <div class="summary-grid">
+            <div><strong>Ventas</strong><span>Neto / bruto</span></div>
+            <div><strong>Canales</strong><span>Tienda, online, mayorista</span></div>
+            <div><strong>Region</strong><span>Cobertura nacional</span></div>
+        </div>
+    </div>
+</div>
+
+<form class="filter-panel" id="filtersForm">
+    <div class="filter-grid">
+        <label>Anio<select class="form-select" name="anio" data-filter="anio"></select></label>
+        <label>Mes<select class="form-select" name="mes" data-filter="mes"></select></label>
+        <label>Sucursal<select class="form-select" name="sucursal" data-filter="sucursal"></select></label>
+        <label>Region<select class="form-select" name="region_sucursal" data-filter="region_sucursal"></select></label>
+        <label>Canal<select class="form-select" name="canal_venta" data-filter="canal_venta"></select></label>
+        <button class="btn btn-primary-material" type="submit"><i class="fa-solid fa-sliders"></i> Aplicar</button>
+    </div>
+</form>
+
+<section class="kpi-grid" id="kpiGrid"></section>
+<section class="chart-grid">
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-0"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-1"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-2"></canvas></div></article>
+    <article class="chart-card"><h3></h3><div class="chart-frame"><canvas id="chart-3"></canvas></div></article>
+</section>
+<section class="table-card">
+    <div class="section-title">
+        <h2>Detalle ejecutivo</h2>
+        <span>Resumen agregado</span>
+    </div>
+    <table id="analyticsTable" class="table table-hover w-100"></table>
+</section>
+{% endblock %}
